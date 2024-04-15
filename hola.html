@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html >
+<head>
+</head>
+<body>
+    <h1>Formulario de Denuncias</h1>
+    <form action="Denuncias.php" method="post">
+        <label for="tipo_denuncia">Tipo de denuncia:</label><br>
+        <select id="tipo_denuncia" name="tipo_denuncia"><br>
+            <option value="">Seleccionar tipo de denuncia</option><br>
+            <option value="robo">Robo</option>
+            <option value="agresion">Agresión</option>
+            <option value="fraude">Fraude</option>
+        </select><br>
+        <label>Genero:</label><br>
+        <input type="radio" id="masculino" name="genero" value="masculino">
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="femenino" name="genero" value="femenino">
+        <label for="femenino">Femenino</label>
+
+        <label for="nombre">Nombre completo:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <label for="email">Correo electrónico:</label><br>
+        <input type="email" id="email" name="email"><br>
+
+        <label for="telefono">Teléfono de contacto:</label><br>
+        <input type="tel" id="telefono" name="telefono"><br>
+
+        <label for="descripcion">Descripción de la denuncia:</label><br>
+        <textarea id="descripcion" name="descripcion" rows="4" required></textarea><br>
+
+        <button type="submit">Enviar Denuncia</button><br>
+    </form>
+</body>
+</html>
+<?php
+$tipo_denuncia = $_POST["tipo_denuncia"];
+$nombre = $_POST["nombre"];
+$email = $_POST["email"];
+$telefono = $_POST["telefono"];
+$genero = $_POST["genero"];
+$descripcion = $_POST["descripcion"];
+
+echo "Tipo Denuncia: $tipo_denuncia <br>";
+echo "Nombre: $nombre <br>";
+echo "Email: $email <br>";
+echo "Telefono: $telefono <br>";
+echo "Genero: $genero <br>";
+echo "Descripcion: $descripcion <br>";
+?>
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+    $tipo_denuncia=$_POST["tipo_denuncia"];
+    $nombre=$_POST["nombre"];
+    $email=$_POST["email"];
+    $telefono=$_POST["telefono"];
+    $genero=$_POST["genero"];
+    $descripcion=$_POST["descripcion"];
+    
+    echo "Tipo Denuncia:$tipo_denuncia <br>";
+    echo "Nombre: $nombre <br>";
+    echo "Email: $emacil <br>";
+    echo "Telefono: $telefono <br>";
+    echo "Genero: $genero <br>";
+    echo "Descripcion: $descripcion <br>";
+}else{
+    header("Location:procesodenun.html");
+    exit();
+}
+    
+?>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    form {
+        width: 300px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+        text-align: left; 
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
